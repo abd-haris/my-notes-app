@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const noteListEl = document.querySelector('note-list');
   const loadingIndicator = document.querySelector('loading-indicator');
   form.addEventListener('submit', (event) => {
-    event.preventDefault(); // Mencegah form di-submit
+    event.preventDefault();
     const title = document.getElementById('title').value;
     const shortDescription = document.getElementById('shortDescription').value;
     const notesInput = {
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
           opacity: 0,
           ease: 'power2.in',
         });
-        noteListEl.setNoteList(notesData); // Tambahkan catatan ke web component
+        noteListEl.setNoteList(notesData);
       } catch (error) {
         console.error('tidak dapat menambahkan note');
       } finally {
@@ -38,6 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     updateNote();
 
-    form.reset(); // Reset form
+    form.reset();
   });
 });
