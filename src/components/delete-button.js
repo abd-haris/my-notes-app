@@ -4,6 +4,8 @@ import { gsap } from 'gsap/gsap-core';
 import CSSPlugin from 'gsap/CSSPlugin';
 gsap.registerPlugin(CSSPlugin);
 
+import 'material-icons/iconfont/material-icons.css';
+
 class DeleteButton extends HTMLElement {
   _shadowRoot = null;
   _style = null;
@@ -20,7 +22,9 @@ class DeleteButton extends HTMLElement {
 
   _updateStyle() {
     this._style.textContent = `
+    @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
     button {
+        font-family: 'Material Icons';
         background-color: red;
         color: white;
         border: none;
@@ -28,6 +32,9 @@ class DeleteButton extends HTMLElement {
         cursor: pointer;
         border-radius: 0.25rem;
         font-size: 0.9rem;
+    span {
+        font-size: 1.5rem;
+    }
     `;
   }
 
@@ -42,7 +49,9 @@ class DeleteButton extends HTMLElement {
     this._shadowRoot.set;
 
     this._shadowRoot.innerHTML += `
-    <button>Delete Book</button>
+    <button>
+    <span class="material-symbols-outlined">delete</span>
+    </button>
     `;
 
     this.addEventListener('click', () => {
