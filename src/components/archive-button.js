@@ -30,9 +30,10 @@ class ArchivedButton extends HTMLElement {
     this._style.textContent = `
     @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
         button {
-          font-family: 'Material Icons';
+          
         }
     button {
+        font-family: 'Material Icons';
         background-color: green;
         color: white;
         border: none;
