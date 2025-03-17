@@ -22,10 +22,10 @@ class NotesBar extends HTMLElement {
               box-shadow: 0 4px 4px 0 rgb(205, 193, 255);
           }
           
-          div {
+          .note-content {
               display: flex;
               align-items: center;
-              justify-content: center;
+              justify-content: flex-start;
               gap: 1rem;
               padding: 1rem;
           }
@@ -52,9 +52,13 @@ class NotesBar extends HTMLElement {
 
     this._shadowRoot.appendChild(this._style);
     this._shadowRoot.innerHTML += `
-          <div>
+          <div class="note-content">
               <img src="${this._imageUrl}" alt="${this._altImage}"/>
               <h1 class="title-bar">Notes App</h1>
+          </div>
+          <div>
+            <a href="">Archived</a>
+            <a href="">Unarchived</a>
           </div>
       `;
   }
