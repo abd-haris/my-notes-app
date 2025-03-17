@@ -3,6 +3,8 @@ import {
   showResponseMessage,
 } from '../data/remote/notes-api';
 
+import 'material-icons/iconfont/material-icons.css';
+
 class UnarchivedButton extends HTMLElement {
   _shadowRoot = null;
   _style = null;
@@ -20,7 +22,9 @@ class UnarchivedButton extends HTMLElement {
 
   _updateStyle() {
     this._style.textContent = `
+    @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
     button {
+        font-family: 'Material Icons';
         background-color: green;
         color: white;
         border: none;
@@ -29,6 +33,9 @@ class UnarchivedButton extends HTMLElement {
         border-radius: 0.25rem;
         font-size: 0.9rem;
         }
+    span {
+        font-size: 1.5rem;
+    }
     `;
   }
 
@@ -43,7 +50,11 @@ class UnarchivedButton extends HTMLElement {
 
     this._shadowRoot.appendChild(this._style);
     this._shadowRoot.innerHTML += `
-    <button>${this._isArchived ? 'Archive' : 'Unarchive'}</button>
+    <button>${
+      this._isArchived
+        ? '<span class="material-symbols-outlined">archive</span>'
+        : '<span class="material-symbols-outlined">unarchive</span>'
+    }</button>
     `;
 
     this.addEventListener('click', async () => {
