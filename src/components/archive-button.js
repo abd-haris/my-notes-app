@@ -5,6 +5,8 @@ import {
   showSuccessMessage,
 } from '../data/remote/notes-api.js';
 
+import 'material-icons/iconfont/material-icons.css';
+
 import { gsap } from 'gsap/gsap-core';
 import CSSPlugin from 'gsap/CSSPlugin';
 gsap.registerPlugin(CSSPlugin);
@@ -26,6 +28,10 @@ class ArchivedButton extends HTMLElement {
 
   _updateStyle() {
     this._style.textContent = `
+    @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+        button {
+          font-family: 'Material Icons';
+        }
     button {
         background-color: green;
         color: white;
@@ -34,7 +40,10 @@ class ArchivedButton extends HTMLElement {
         cursor: pointer;
         border-radius: 0.25rem;
         font-size: 0.9rem;
-        }
+
+    span {
+        font-size: 1.5rem;
+    }
     `;
   }
 
@@ -48,7 +57,9 @@ class ArchivedButton extends HTMLElement {
     this._emptyContent();
     this._shadowRoot.appendChild(this._style);
     this._shadowRoot.innerHTML += `
-    <button>Archived</button>
+    <button>
+    <span class="material-symbols-outlined">archive</span>
+    </button>
     `;
     this.addEventListener('click', async () => {
       const noteItem = this.parentNode.parentNode;
