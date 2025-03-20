@@ -37,14 +37,16 @@ class NoteList extends HTMLElement {
         width: 90vw;
         margin-top: 1rem;
     }
+    h2 {
+        text-align: center;
+        margin-top: 2rem;
+    }
     `;
   }
 
   render() {
     this.updateStyle();
-
     const noteItemElements = [];
-
     this._noteList.map((item) => {
       const note = document.createElement('note-item');
       if (item.archived == false) {
