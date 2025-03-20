@@ -27,9 +27,7 @@ class NoteArchive extends HTMLElement {
   async render() {
     const noteList = document.querySelector('note-archive');
     noteList.innerHTML = '';
-
     const notes = await getArchivedNotesFromApi();
-
     notes.forEach((note) => {
       const noteItem = document.createElement('note-item');
       noteItem.setNote(note);
