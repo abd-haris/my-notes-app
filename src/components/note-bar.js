@@ -22,12 +22,18 @@ class NotesBar extends HTMLElement {
               box-shadow: 0 4px 4px 0 rgb(205, 193, 255);
           }
           
+          .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+          }
+
           .note-content {
               display: flex;
               align-items: center;
               justify-content: flex-start;
               gap: 1rem;
-              padding: 1rem;
           }
   
           img {
@@ -38,6 +44,21 @@ class NotesBar extends HTMLElement {
               margin: 0;
               font-size: 1.7rem;
               color: #F5EFFF;
+          }
+
+          .note-buttons {
+              display: flex;
+              gap: 2rem;
+          }
+
+          .note-buttons button {
+              font-family: 'Poppins', serif;
+              background-color: transparent;
+              border: none;
+              font-size: 1rem;
+              cursor: pointer;
+              color: #F5EFFF;
+              font-weight: semi-bold;
           }
       `;
   }
@@ -52,15 +73,30 @@ class NotesBar extends HTMLElement {
 
     this._shadowRoot.appendChild(this._style);
     this._shadowRoot.innerHTML += `
+        <div class="container">
           <div class="note-content">
-              <img src="${this._imageUrl}" alt="${this._altImage}"/>
-              <h1 class="title-bar">Notes App</h1>
+            <img src="${this._imageUrl}" alt="${this._altImage}"/>
+            <h1 class="title-bar">Notes App</h1>
           </div>
-          <div>
-            <a href="">Archived</a>
-            <a href="">Unarchived</a>
+          <div class="note-buttons">
+            <button id="add-note">Add Note</button>
+            <button id="notes-btn">All Notes</button>
+            <button id="archive-btn">Archived</button>
           </div>
+        </div>
       `;
+
+    this.addNoteBtn = this._shadowRoot.querySelector('#add-note');
+    this.allNotesBtn = this._shadowRoot.querySelector('#notes-btn');
+    this.archiveBtn = this._shadowRoot.querySelector('#archive-btn');
+  }
+
+  getButtons() {
+    return {
+      addNote: this.addNoteBtn,
+      allNotes: this.allNotesBtn,
+      archive: this.archiveBtn,
+    };
   }
 }
 
