@@ -1,5 +1,6 @@
 body {
   font-family: 'Poppins', serif;
+  min-height: 100vh;
 }
 
 header {
@@ -87,12 +88,11 @@ main .note-list {
   justify-items: center;
 }
 
-main .note-list .title {
-  margin-top: 2rem;
-}
-
 footer {
   background-color: #a294f9;
   color: #f5efff;
   margin-top: 2rem;
+  /* position: absolute;
+  bottom: 0;
+  width: 100%; */
 }
